@@ -1,1 +1,0 @@
-var floorplan = "floorplan.jpg"; var projectName = "lifespace-36577143"

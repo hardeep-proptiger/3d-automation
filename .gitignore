@@ -4,9 +4,9 @@ private.properties
 dist/
 public/js/templates.js
 nbproject/
-public/builds/*
-public/projects/*
-public/beta/*
+public/builds
+public/projects
+public/beta
 public/engine
 node_modules/
 test/
