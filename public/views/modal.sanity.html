@@ -1,0 +1,46 @@
+<div class="modal-body wrapper-lg">
+    <div class="text-center">
+        <h1 class="text-center segoe">
+           Sanity checks
+        </h1>
+        <div class="w-full">
+            <accordion close-others="true">
+                <accordion-group is-open="sanity.sanity1">
+                    <accordion-heading>
+                        Sanity test #1 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': sanity.sanity1, 'glyphicon-chevron-right': !sanity.sanity1}"></i>
+                    </accordion-heading>
+                    This test checks if the directories <h5 class="i-b segoe">highres</h5>, <h5 class="i-b segoe">midres</h5>, <h5 class="i-b segoe">lowres</h5> exist in your chosen directory.
+                </accordion-group>
+
+                <accordion-group is-open="sanity.sanity2">
+                    <accordion-heading>
+                        Sanity test #2 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': sanity.sanity2, 'glyphicon-chevron-right': !sanity.sanity2}"></i>
+                    </accordion-heading>
+                    This test checks if the directories <h5 class="i-b segoe">highres</h5>, <h5 class="i-b segoe">midres</h5>, <h5 class="i-b segoe">lowres</h5> include the same number of images or not.
+                </accordion-group>
+
+                <accordion-group is-open="sanity.sanity3">
+                    <accordion-heading>
+                        Sanity test #3 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': sanity.sanity3, 'glyphicon-chevron-right': !sanity.sanity3}"></i>
+                    </accordion-heading>
+                    This test checks if the directories <h5 class="i-b segoe">highres</h5>, <h5 class="i-b segoe">midres</h5>, <h5 class="i-b segoe">lowres</h5> include the same name of the images, For eg: if <h5 class="i-b segoe">highres</h5> folder contains <h5 class="i-b segoe">0.jpg</h5> and <h5 class="i-b segoe">1.jpg</h5>, then <h5 class="i-b segoe">midres</h5> and <h5 class="i-b segoe">lowres</h5> should also contain <h5 class="i-b segoe">0.jpg</h5> and <h5 class="i-b segoe">1.jpg</h5>.
+                </accordion-group>
+
+                <accordion-group is-open="sanity.sanity4">
+                    <accordion-heading>
+                        Sanity test #4 ( Optional ) <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': sanity.sanity5, 'glyphicon-chevron-right': !sanity.sanity5}"></i>
+                    </accordion-heading>
+                    This test checks if <h5 class="i-b segoe">connections.json</h5> file contained in the folder exists and is a valid json file, If not, then you can build it manually.
+                </accordion-group>
+
+                <accordion-group is-open="sanity.sanity5">
+                    <accordion-heading>
+                        Sanity test #5 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': sanity.sanity6, 'glyphicon-chevron-right': !sanity.sanity6}"></i>
+                    </accordion-heading>
+                    This test checks if the selected folder contains a <h5 class="i-b segoe">floorplan.(jpg|jpeg|gif|JPG|png|PNG)</h5> file or not.
+                </accordion-group>
+
+            </accordion>
+        </div>
+    </div>
+</div>

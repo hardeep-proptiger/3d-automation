@@ -1,0 +1,1 @@
+var floorplan = "floorplan.jpg"; var projectName = "apartments-73354657"

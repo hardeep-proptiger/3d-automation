@@ -1,0 +1,1 @@
+var floorplan = "floorplan.png"; var projectName = "supertech-6958626"

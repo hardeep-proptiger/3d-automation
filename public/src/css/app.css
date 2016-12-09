@@ -1,0 +1,152 @@
+html {
+    background-color: #fff;
+}
+.center-middle {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%) !important;
+    -o-transform: translate(-50%,-50%) !important;
+    transform: translate(-50%,-50%) !important;
+}
+
+.segoe {
+    font-family: segoe;
+}
+
+.splash {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba( 0,0,0,0.9 );
+    z-index: 1;
+}
+
+.top, .height, .hiding {
+    -webkit-transition:all ease-in 1s;
+    transition:all ease-in 1s;
+}
+
+.main-content {
+    opacity: 0;
+    -webkit-transition:all ease-in 1s 1s;
+    transition:all ease-in 1s 1s;
+}
+
+.top.ng-hide {
+    display: block !important;
+    top: 10px;
+    -webkit-transform: translate(-50%,0) !important;
+    -o-transform: translate(-50%,0) !important;
+    transform: translate(-50%,0) !important;
+}
+
+.height.ng-hide {
+    display: inline-block!important;
+    height: 110px!important;
+}
+
+.hiding.ng-hide {
+    opacity: 0;
+}
+
+.main-content.ng-hide {
+    position: relative;
+    display: block!important;
+    opacity: 1!important;
+    top: 118px!important;
+}
+
+td img {
+    width: 150px;
+    height: auto;
+}
+
+.i-b {
+    display: inline-block;
+}
+
+td.connections>div {
+    margin: 3px 10px;
+}
+
+.left-top {
+    -webkit-transition:all ease-in;
+    transition:all ease-in 0.2s;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.font-size {
+    font-size: 50px;
+}
+
+.left-top:hover {
+    background-color: rgba(32,43,54,0.8);
+    cursor: pointer;
+}
+
+.center-window-modal.modal.fade .modal-dialog {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%,-50%) scale(0.7);
+    -webkit-transform: translate(-50%,-50%) scale(0.7);
+    -ms-transform: translate(-50%,-50%) scale(0.7);
+    -o-transform: translate(-50%,-50%) scale(0.7);
+    transform: translate(-50%,-50%) scale(0.7);
+}
+
+.center-window-modal.modal.fade .modal-dialog {
+    -moz-transform: translate(-50%,-50%) scale(0.7);
+    -webkit-transform: translate(-50%,-50%) scale(0.7);
+    -ms-transform: translate(-50%,-50%) scale(0.7);
+    -o-transform: translate(-50%,-50%) scale(0.7);
+    transform: translate(-50%,-50%) scale(0.7);
+    -webkit-transition: transform 300ms;
+    -moz-transition: transform 300ms;
+    transition: transform 300ms;
+}
+
+.center-window-modal.modal.in .modal-dialog {
+    -moz-transform: translate(-50%,-50%) scale(1);
+    -webkit-transform: translate(-50%,-50%) scale(1);
+    -ms-transform: translate(-50%,-50%) scale(1);
+    -o-transform: translate(-50%,-50%) scale(1);
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.btn-success {
+    color: #fff!important;
+    background-color: #27c24c;
+    border-color: #27c24c;
+}
+
+.btn-proptiger {
+    margin-top: 25px!important;
+    color: #fff!important;
+    background: rgb(247, 148, 30);
+    border-color: #F7941E;
+}
+.open>.dropdown-menu {
+    margin: 0 5px;
+    top: -2px;
+    max-height: 105%;
+    overflow: auto;
+}
+
+.cursor-ptr {
+    cursor: pointer;
+}
+
+.top-right {
+    position: absolute;
+    right: -10px;
+    top: -12px;
+}

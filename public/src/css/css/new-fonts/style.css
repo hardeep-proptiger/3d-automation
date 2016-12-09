@@ -1,0 +1,81 @@
+@font-face {
+	font-family: 'helveticaNeue';
+	src: url('Helvetica/HelveticaNeue.otf');
+}
+
+@font-face {
+	font-family: 'myriad';
+	src: url('myriad.ttf');
+}
+
+@font-face {
+	font-family: 'Arista';
+	src: url('arista/arista.ttf');
+}
+
+@font-face {
+	font-family: 'futura-light';
+	src: url('futura-light.ttf');
+}
+
+
+@font-face {
+	font-family: 'lato1';
+	src: url('lato1.woff2');
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	src: url('proximanovalight/proxima.ttf');
+}
+
+@font-face {
+	font-family: 'futura';
+	src: url('futura.ttf');
+}
+
+
+@font-face {
+	font-family: 'lato2';
+	src: url('lato2.woff2');
+}
+
+@font-face {
+	font-family: 'raleway';
+	src: url('raleway.woff2');
+}
+
+@font-face {
+	font-family: 'roboto-thin';
+	src: url('Roboto-Thin.ttf');
+}
+
+@font-face {
+	font-family: 'roboto-regular';
+	src: url('Roboto-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'museo-1';
+	src: url('./MuseoFont/MuseoSans-100.otf');
+}
+
+@font-face {
+	font-family: 'museo-2';
+	src: url('./MuseoFont/MuseoSans-300.otf');
+}
+
+@font-face {
+	font-family: 'museo-3';
+	src: url('./MuseoFont/MuseoSans_500.otf');
+}
+
+@font-face {
+	font-family: 'museo-4';
+	src: url('./MuseoFont/MuseoSans_700.otf');
+}
+
+@font-face {
+	font-family: 'segoe';
+	src: url('myriad.otf');
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" ng-app="automationApp">
+	<head>
+		<title>Proptiger Automation app</title>
+		<link rel="stylesheet" type="text/css" href="src/css/app.min.css">
+		<link rel="stylesheet" type="text/css" href="src/css/app.css">
+		<link rel="stylesheet" type="text/css" href="src/css/toaster.css">
+		<link rel="stylesheet" type="text/css" href="src/css/select.css">
+		<link rel="stylesheet" type="text/css" href="src/css/select2.css">
+		<link rel="stylesheet" type="text/css" href="src/css/selectize.default.css">
+	</head>
+	<body ng-controller="MainController">
+		<div class="container">
+			<div>
+				<div class="top center-middle segoe text-center" ng-show="!slide">
+                    <div class="w-full">
+                        <img class="pos-rlt height" ng-show="!slide" style="height: 150px;" src="./src/logo.png" alt="Proptiger Logo"/>
+                    </div>
+                    <div class="w-full m-t-sm hiding" ng-show="!slide">
+                        <!--<input ng-model="asyncSelected" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" placeholder="Directory name" type="text" class="form-control segoe"/>-->
+
+                        <ui-select ng-model="project.name" theme="select2" style="min-width: 300px;" title="Choose a project">
+                            <ui-select-match placeholder="Select a project or a build..">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="'type'" repeat="project in projects | propsFilter: {name: $select.search}">
+                                <div ng-bind-html="project.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+
+                        <div ng-show="noResults">
+                           No Results Found
+                        </div>
+                        <button ng-show="asyncSelected.name.type === 'Projects' || !asyncSelected.name" ng-click="generateData()" class="btn btn-block btn-default m-t-sm">
+                            <span>Fetch</span>
+                        </button>
+                        <a target="_blank" ng-show="asyncSelected.name.type === 'Builds'"  href="http://localhost:7000/builds/{{asyncSelected.name.name}}" class="btn btn-block btn-success m-t-sm">
+                            <span>Go to build</span>
+                        </a>
+
+                        <button ng-click="sanity('sanity1')" class="btn btn-block btn-proptiger m-t-lg">
+                            <span>Sanity tests</span>
+                        </button>
+                    </div>
+				</div>
+                <div class="w-full main-content segoe text-center" ng-show="!slide">
+                    <h2>
+                        Everything looks good! Let's take a final look
+                    </h2>
+                    <table class="table table-striped b-t b-light">
+                        <thead>
+                        <tr>
+                            <th style="font-size: 18px;" class="text-center">Sphere</th>
+                            <th style="font-size: 18px;" class="text-center">Connections</th>
+                            <th style="font-size: 18px; width: 150px; height: 75px;" class="text-center">Add connection</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="connection in connections">
+                            <td class="main">
+                                <div ng-click="openSource($index)" class="i-b pos-rlt">
+                                    <img ng-src="projects/{{project}}/lowres/{{$index}}{{extension}}" alt=""/>
+                                    <div class="pos-abt left-top bg-black-opacity text-center text-white segoe">
+                                        <div class="center-middle segoe font-size">{{$index}}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="connections">
+                                <div ng-click="openConnections()" ng-repeat="conn in connections[$index]" class="i-b pos-rlt">
+                                    <span ng-click="deleteConnection($event,$index)" class="icon-close cursor-ptr top-right"></span>
+                                    <img ng-src="projects/{{project}}/lowres/{{conn}}.jpg" alt=""/>
+                                    <div class="pos-abt left-top bg-black-opacity text-center text-white segoe">
+                                        <div class="center-middle segoe font-size">{{conn}}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td dropdown class="connections pos-rlt" auto-close="outsideClick" keyboard-nav>
+                                <div id="add-dropdown" dropdown-toggle style="width: 100%; height: 100%;" class="bg-black-opacity add-button pos-abt left-top text-center text-white segoe">
+                                    <span style="font-size: 30px;" class="fa fa-plus center-middle"></span>
+                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="add-dropdown">
+                                    <li ng-repeat="drop in dropdownMenu[$index]" ng-click="menuClick($event,$index)" >
+                                        <a class="text-center" href>{{drop}}.{{extension}}</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div ng-if="floorplan" class="w-full b-t m-t-md m-b-md text-center">
+                        <h1>The Floor Plan</h1>
+                        <div id="floorplan">
+                            <img ng-src="projects/{{project}}/{{floorplan}}" alt=""/>
+                        </div>
+                    </div>
+                    <div ng-if="!generated" class="w-full">
+                        <button ng-click="generateBuild()" style="margin: 20px 0;" class="btn btn-success">
+                            Generate build
+                        </button>
+                    </div>
+                </div>
+			</div>
+		</div>
+        <div ng-show="splash" class="splash">
+            <div class="center-middle text-white">
+                <span class="segoe m-r-sm">Fetching data</span><span class="fa fa-spin fa-spinner"></span>
+            </div>
+        </div>
+        <toaster-container></toaster-container>
+
+        <script type="text/javascript" src="lib/three.min.js"></script>
+		<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+		<script type="text/javascript" src="src/angular-sanitize.js"></script>
+		<script type="text/javascript" src="src/angular-animate.js"></script>
+		<script type="text/javascript" src="src/toaster.js"></script>
+		<script type="text/javascript" src="src/select.js"></script>
+        <script type="text/javascript" src="src/ui-bootstrap-tpls.js"></script>
+		<script type="text/javascript" src="src/app.js"></script>
+        <script type="text/javascript" src="src/ui-three.js"></script>
+        <script type="text/javascript" src="src/filter.js"></script>
+	</body>
+</html>
